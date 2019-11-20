@@ -1,8 +1,6 @@
 package edu.cnm.deedive;
 
-import java.sql.Time;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.Random;
 
 public class IterativeGeeks {
@@ -38,7 +36,7 @@ public class IterativeGeeks {
     // Driver method to test above
     public static void main(String[] args) {
 
-      int needle = 3;
+      int needle = 999999;
       double start;
       double end;
 
@@ -75,8 +73,6 @@ public class IterativeGeeks {
         System.out.println("Number found at "
             + "index " + index2);
       }
-
-
 
 
       IterativeGeeks iG = new IterativeGeeks();

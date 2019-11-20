@@ -1,11 +1,13 @@
 package edu.cnm.deedive;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
-public class BinarySearch {
+public class SearchSet {
 
-  public int binarySearch(int needle, int[] nums) {
+  public int binarySearch(int needle, Integer[] nums) {
 
     int low = 0;
     int high = nums.length - 1;
@@ -26,18 +28,18 @@ public class BinarySearch {
         high = mid - 1;
       }
     }
-      return -1;
-    }
+    return -1;
+  }
 
-    public int linearSearch (int[] arr, int needle) {
+  public int linearSearch (Integer[] arr, int needle) {
 
-      for(int i = 0; i < arr.length; i++) {
-        if(arr[i] == needle){
-          return i;
-        }
+    for(int i = 0; i < arr.length; i++) {
+      if(arr[i] == needle){
+        return i;
       }
-      return -1;
     }
+    return -1;
+  }
 
   public static void main(String[] args) {
     int needle = 999;
@@ -45,14 +47,18 @@ public class BinarySearch {
     double end;
     int index;
 
-    int[] linArr = new int[1_000_000];
+    Integer[] linArr = new Integer[1_000_000];
+    Set<Integer> set = new HashSet<>();
+
     for (int i = 0; i < linArr.length; ++i) {
       Random rand = new Random();
-      int rand_int1 = rand.nextInt(1_000_000);
-      linArr[i] = rand_int1;
+      Integer rand_int1 = rand.nextInt(1_000_000);
+      set.add(rand_int1);
     }
 
-    LinearSearch search = new LinearSearch();
+    set.toArray(linArr);
+
+    SearchSet search = new SearchSet();
     start = System.nanoTime();
     index = search.linearSearch(linArr, needle);
     end = System.nanoTime();
@@ -64,9 +70,9 @@ public class BinarySearch {
           + "index " + index);
     }
 
-    Arrays.sort(linArr);
+   Arrays.sort(linArr);
 
-    LinearSearch linearSearch = new LinearSearch();
+    SearchSet linearSearch = new SearchSet();
     start = System.nanoTime();
     int result = linearSearch.linearSearch(linArr, needle);
     end = System.nanoTime();
@@ -80,7 +86,7 @@ public class BinarySearch {
 
 
 
-    BinarySearch binarySearch = new BinarySearch();
+    SearchSet binarySearch = new SearchSet();
     start = System.nanoTime();
     index = binarySearch.binarySearch(needle, linArr);
     end = System.nanoTime();
@@ -93,4 +99,5 @@ public class BinarySearch {
     }
 
   }
+
 }
